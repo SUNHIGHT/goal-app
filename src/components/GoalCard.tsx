@@ -53,7 +53,8 @@ function GoalCard({
                     <p>目標: {item.goal}</p>
                     <p>アプローチ: {item.approach}</p>
                     <p>ステータス: {item.status}</p>
-
+                    <p>期限：{item.dueDate || "未設定" }</p>
+                    
                     <button onClick={() => setIsEditing(true)} style={{ marginRight: "8px" }}>
                         編集
                     </button>

@@ -13,6 +13,7 @@ function GoalEditForm({ item, onSave, onCancel }: GoalEditFormProps) {
     const [goal, setGoal] = useState(item.goal);
     const [approach, setApproach] = useState(item.approach);
     const [status, setStatus] = useState(item.status);
+    const [dueDate, setDueDate] = useState(item.dueDate || "");
 
     const handleSave = () => {
         const trimmedTitle = title.trim();
@@ -57,6 +58,11 @@ function GoalEditForm({ item, onSave, onCancel }: GoalEditFormProps) {
                 <option value="進行中">進行中</option>
                 <option value="完了">完了</option>
             </select>
+            <input
+                type="date"
+                value={dueDate}
+                onChange={(e) => setDueDate(e.target.value)}
+            />
             <button onClick={handleSave}>保存</button>
             <button onClick={onCancel}>キャンセル</button>
         </div>

@@ -13,4 +13,5 @@ export type GoalItem = {
   approach: string;
   status: GoalStatus;
   progressLogs: ProgressLog[];
+  dueDate?: string;
 };

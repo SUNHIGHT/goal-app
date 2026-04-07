@@ -30,6 +30,7 @@ function App() {
     const [goalInput, setGoalInput] = useState("");
     const [approachInput, setApproachInput] = useState("");
     const [statusInput, setStatusInput] = useState<GoalStatus>("未着手");
+    const [duDateInput, setDueDateInput] = useState("");
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -176,11 +177,11 @@ function App() {
 
                 <div style={{ marginBottom: "8px" }}>
                     <textarea
-                        placeholder="アプローチそのに"
+                        placeholder="アプローチ"
                         value={approachInput}
                         onChange={(e) => setApproachInput(e.target.value)}
                         style={{ width: "100%" }}
-                     />
+                    />
                 </div>
 
                 <div style={{ marginBottom: "8px" }}>
@@ -192,6 +193,14 @@ function App() {
                         <option value="進行中">進行中</option>
                         <option value="完了">完了</option>
                     </select>
+                </div>
+
+                <div style={{ marginBottom: "8px" }}>
+                    <input type="date"
+                        value={duDateInput}
+                        onChange={(e) => setDueDateInput(e.target.value)}
+                    >
+                    </input>
                 </div>
 
                 <button onClick={handleAddGoal}>追加</button>
