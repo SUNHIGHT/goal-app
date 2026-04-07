@@ -162,7 +162,7 @@ return (
 //htmlの書き方がjsxというもの。jsxはjavascriptの中にhtmlを埋め込むことができる。jsxはjavascriptの拡張子で、jsxファイルはjavascriptファイルとして扱われる。jsxはjavascriptの中にhtmlを埋め込むことができるため、javascriptの変数や関数をhtmlの中で使用することができる。
 //{sampleItem.map((item) => ( ... ))}は、sampleItemという配列の各要素に対して、指定された関数を実行し、その結果を新しい配列として返すための構文です。上記のコードでは、sampleItemの各要素をitemという変数に代入し、そのitemのプロパティを使用してHTMLを生成しています。key={item.id}は、Reactがリストを効率的に更新するために必要なキーを指定しています。キーは、リスト内の各要素が一意であることを保証するために使用されます。
 //VSCodeの場合、Shift + Alt + Fでインデントを自動的に修正できます。また、右クリックして「フォーマット」を選択することもできます。
-
+//仮
 
 export default App;
 
