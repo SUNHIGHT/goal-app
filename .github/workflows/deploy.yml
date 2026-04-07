@@ -41,4 +41,4 @@ jobs:
         run: aws s3 sync dist/ s3://takanishi-goal-app --delete
 
       - name: Invalidate CloudFront
-        run: aws cloudfront create-invalidation --distribution-id E1ABCDEF123456 --paths "/*"
+        run: aws cloudfront create-invalidation --distribution-id E3CR4ANZCF0Y7B --paths "/*"
