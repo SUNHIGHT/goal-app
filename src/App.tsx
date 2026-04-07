@@ -175,8 +175,7 @@ function App() {
                 </div>
 
                 <div style={{ marginBottom: "8px" }}>
-                    <input
-                        type="text"
+                    <textarea
                         placeholder="アプローチ"
                         value={approachInput}
                         onChange={(e) => setApproachInput(e.target.value)}

@@ -78,7 +78,7 @@ return (
         value={goalInput}
         onChange={(e) => setGoalInput(e.target.value)}
       />
-      <input type="text"
+      <textarea
         placeholder="アプローチ"
         value={approachInput}
         onChange={(e) => setApproachInput(e.target.value)}

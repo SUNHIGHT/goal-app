@@ -47,8 +47,7 @@ function GoalEditForm({ item, onSave, onCancel }: GoalEditFormProps) {
                 onChange={(e) => setGoal(e.target.value)}
                 placeholder="目標"
             />
-            <input
-                type="text"
+            <textarea
                 value={approach}
                 onChange={(e) => setApproach(e.target.value)}
                 placeholder="アプローチ"
