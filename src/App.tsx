@@ -176,11 +176,11 @@ function App() {
 
                 <div style={{ marginBottom: "8px" }}>
                     <textarea
-                        placeholder="アプローチ"
+                        placeholder="アプローチそのに"
                         value={approachInput}
                         onChange={(e) => setApproachInput(e.target.value)}
                         style={{ width: "100%" }}
-                    />
+                     />
                 </div>
 
                 <div style={{ marginBottom: "8px" }}>
