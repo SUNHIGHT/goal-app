@@ -9,6 +9,7 @@ type GoalCardProps = {
     onUpdateGoal: (updatedItem: GoalItem) => void;
     onAddLog: (goalId: string, content: string) => void;
     onDeleteLog: (goalId: string, logId: string) => void;
+    onAddDailyRecord: (goalId: string, result: "done" | "not_done") => void;
 };
 
 function GoalCard({
@@ -17,6 +18,7 @@ function GoalCard({
     onUpdateGoal,
     onAddLog,
     onDeleteLog,
+    onAddDailyRecord
 }: GoalCardProps) {
     const [isEditing, setIsEditing] = useState(false);
     const [logInput, setLogInput] = useState("");
@@ -33,6 +35,10 @@ function GoalCard({
         onUpdateGoal(updatedItem);
         setIsEditing(false);
     };
+
+    const onRecordToday = (result: "done" | "not_done") => {
+        onAddDailyRecord(item.id, result);
+    }
 
     return (
         <div
@@ -75,7 +81,15 @@ function GoalCard({
                                 <div className="value">{item.dueDate || "未設定"}</div>
                             </div>
                         </div>
-
+                        <div>
+                            <div className="label">今日の記録</div>
+                            <button onClick={() => onRecordToday("done")} style={{ marginRight: "8px" }}>
+                                出来た
+                            </button>
+                            <button onClick={() => onRecordToday("not_done")}>
+                                出来なかった
+                            </button>
+                        </div>
                     </div>
 
 

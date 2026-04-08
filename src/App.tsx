@@ -146,6 +146,30 @@ function App() {
         await saveItemToAws(updatedItem);
     }
 
+    const handleAddDailyRecord = async (goalId: string, result: "done" | "not_done") => {
+        const targetItem = items.find((item) => item.id === goalId);
+        if (!targetItem) return;
+        const today = new Date().toISOString().split("T")[0];
+        const newRecord = {
+            id: Date.now().toString(),
+            date: today,
+            result,
+        };
+        const updatedItem: GoalItem = {
+            ...targetItem,
+            dailyRecords: [
+                ...(targetItem.dailyRecords || []).filter(
+                    (record) => record.date !== today
+                ),
+                newRecord,
+            ],
+        };
+        //元のGoalItemをコピーしてその中のdailyRecordsだけを新たに作っている
+        setItems(items.map((item) => (item.id === goalId ? updatedItem : item)));
+        await saveItemToAws(updatedItem);
+    };
+
+
     return (
         <div style={{ padding: "24px", maxWidth: "800px", margin: "0 auto" }}>
             <h1>ゴールと進め方アプリ</h1>
@@ -181,7 +205,7 @@ function App() {
 
                 <div style={{ marginBottom: "8px" }}>
                     <textarea
-                    className = "approach-textarea"
+                        className="approach-textarea"
                         placeholder="アプローチ"
                         value={approachInput}
                         onChange={(e) => setApproachInput(e.target.value)}
@@ -218,6 +242,7 @@ function App() {
                     onUpdateGoal={handleUpdateGoal}
                     onAddLog={handleAddLog}
                     onDeleteLog={handleDeleteLog}
+                    onAddDailyRecord={handleAddDailyRecord}
                 />
             ))}
         </div>

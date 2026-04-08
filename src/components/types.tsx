@@ -14,4 +14,13 @@ export type GoalItem = {
   status: GoalStatus;
   progressLogs: ProgressLog[];
   dueDate?: string;
+  dailyRecords?: DailyRecord[];
 };
+
+export type DailyRecord = {
+    id: string;
+    date: string;
+    result:"done"| "not_done";
+    note?: string;
+}
+

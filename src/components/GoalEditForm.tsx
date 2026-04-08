@@ -1,6 +1,6 @@
 //受け取るものは三つ item,onSave,onCancel
 import { useState } from 'react';
-import type {GoalItem} from './types';
+import type { GoalItem } from './types';
 import "../App.css";
 type GoalEditFormProps = {
     item: GoalItem;
@@ -42,24 +42,35 @@ function GoalEditForm({ item, onSave, onCancel }: GoalEditFormProps) {
     return (
         <div>
             <h2>ゴールを編集</h2>
-            <input
-                type="text"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                placeholder="タイトル"
-            />
-            <input
-                type="text"
-                value={goal}
-                onChange={(e) => setGoal(e.target.value)}
-                placeholder="目標"
-            />
-            <textarea
-            className = "approach-textarea"
-                value={approach}
-                onChange={(e) => setApproach(e.target.value)}
-                placeholder="アプローチ"
-            />
+            <div style={{ marginBottom: "8px" }}>
+                <input
+                    type="text"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="タイトル"
+                    style={{ width: "100%" }}
+                />
+            </div>
+
+            <div style={{ marginBottom: "8px" }}>
+                <input
+                    type="text"
+                    value={goal}
+                    onChange={(e) => setGoal(e.target.value)}
+                    placeholder="目標"
+                    style={{ width: "100%" }}
+                />
+            </div>
+
+            <div style={{ marginBottom: "8px" }}>
+                <textarea
+                    className="approach-textarea"
+                    value={approach}
+                    onChange={(e) => setApproach(e.target.value)}
+                    placeholder="アプローチ"
+                />
+            </div>
+
             <select value={status} onChange={(e) => setStatus(e.target.value as "未着手" | "進行中" | "完了")}>
                 <option value="未着手">未着手</option>
                 <option value="進行中">進行中</option>
