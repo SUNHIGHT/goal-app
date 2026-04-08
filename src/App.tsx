@@ -110,37 +110,38 @@ function App() {
         await saveItemToAws(updatedItem);
     };
 
-    const handleAddLog = (goalId: string, content: string) => {
+    const handleAddLog = async (goalId: string, content: string) => {
         const newLog: ProgressLog = {
             id: Date.now().toString(),
             date: new Date().toISOString().split("T")[0],
             content,
         };
 
-        setItems(
-            items.map((item) =>
-                item.id === goalId
-                    ? {
-                        ...item,
-                        progressLogs: [...item.progressLogs, newLog],
-                    }
-                    : item
-            )
-        );
+        const targetItem = items.find((item) => item.id === goalId);
+        if (!targetItem) return;
+
+        const updatedItem: GoalItem = {
+            ...targetItem,
+            progressLogs: [...targetItem.progressLogs, newLog],
+        };
+
+        const updatedItems = items.map((item) => (item.id === goalId ? updatedItem : item));
+        setItems(updatedItems);
+        await saveItemToAws(updatedItem);
+
     };
 
-    const handleDeleteLog = (goalId: string, logId: string) => {
-        setItems(
-            items.map((item) =>
-                item.id === goalId
-                    ? {
-                        ...item,
-                        progressLogs: item.progressLogs.filter((log) => log.id !== logId),
-                    }
-                    : item
-            )
-        );
-    };
+    const handleDeleteLog = async (goalId: string, logId: string) => {
+        const targetItem = items.find((item) => item.id === goalId);
+        if (!targetItem) return;
+
+        const updatedItem: GoalItem = {
+            ...targetItem,
+            progressLogs: targetItem.progressLogs.filter((log) => log.id !== logId),
+        };
+        setItems(items.map((item) => (item.id === goalId ? updatedItem : item)));
+        await saveItemToAws(updatedItem);
+    }
 
     return (
         <div style={{ padding: "24px", maxWidth: "800px", margin: "0 auto" }}>
