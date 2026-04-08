@@ -23,6 +23,11 @@ function GoalEditForm({ item, onSave, onCancel }: GoalEditFormProps) {
             alert("タイトル、目標、アプローチは必須です。");
             return;
         }
+        const trimmedDueDate = dueDate.trim();
+        if (trimmedDueDate !== "" && isNaN(Date.parse(trimmedDueDate))) {
+            alert("期限は有効な日付形式で入力してください。");
+            return;
+        }
 
         onSave({
             ...item,
@@ -30,6 +35,7 @@ function GoalEditForm({ item, onSave, onCancel }: GoalEditFormProps) {
             goal: trimmedGoal,
             approach: trimmedApproach,
             status,
+            dueDate: trimmedDueDate || undefined,
         });
     };
 

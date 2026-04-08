@@ -63,6 +63,7 @@ function App() {
         const trimmedTitle = titleInput.trim();
         const trimmedGoal = goalInput.trim();
         const trimmedApproach = approachInput.trim();
+        const trimmedDueDate = duDateInput.trim();
 
         if (trimmedTitle === "") return;
         if (trimmedGoal === "") return;
@@ -75,6 +76,7 @@ function App() {
             approach: trimmedApproach,
             status: statusInput,
             progressLogs: [],
+            dueDate: trimmedDueDate || undefined,
         };
 
         setItems([...items, newItem]);
