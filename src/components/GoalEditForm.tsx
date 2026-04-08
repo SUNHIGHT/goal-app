@@ -1,7 +1,7 @@
 //受け取るものは三つ item,onSave,onCancel
 import { useState } from 'react';
 import type {GoalItem} from './types';
-
+import "../App.css";
 type GoalEditFormProps = {
     item: GoalItem;
     onSave: (updatedItem: GoalItem) => void;
@@ -55,6 +55,7 @@ function GoalEditForm({ item, onSave, onCancel }: GoalEditFormProps) {
                 placeholder="目標"
             />
             <textarea
+            className = "approach-textarea"
                 value={approach}
                 onChange={(e) => setApproach(e.target.value)}
                 placeholder="アプローチ"

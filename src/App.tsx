@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { GoalItem, ProgressLog, GoalStatus } from "./components/types";
 import GoalCard from "./components/GoalCard";
+import "./App.css";
 
 const API_URL = "https://zzl6x53gbn7vx5grg2ysl5bigy0vramv.lambda-url.ap-northeast-1.on.aws/"
 
@@ -180,10 +181,10 @@ function App() {
 
                 <div style={{ marginBottom: "8px" }}>
                     <textarea
+                    className = "approach-textarea"
                         placeholder="アプローチ"
                         value={approachInput}
                         onChange={(e) => setApproachInput(e.target.value)}
-                        style={{ width: "100%" }}
                     />
                 </div>
 
