@@ -1,0 +1,49 @@
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 40px);
+  gap: 8px;
+  justify-content: center;
+}
+
+.calendar-week {
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendar-cell {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 14px;
+
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.calendar-cell:hover {
+  background: #eceff4;
+}
+
+/* 今日 */
+.calendar-cell.today {
+  background: #e60012;
+  color: white;
+  font-weight: bold;
+}
+
+/* 締切までの期間 */
+.calendar-cell.range {
+  background: #ffe8eb;
+}
+
+/* 締切日 */
+.calendar-cell.dueDay {
+  background: #ffb3bd;
+  color: #7a0010;
+  font-weight: bold;
+
+  border: 2px solid #e60012;
+}

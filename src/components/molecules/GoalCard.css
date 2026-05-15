@@ -1,0 +1,44 @@
+.goal-card {
+  width: 100%;
+}
+
+.goal-title {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.goal-body {
+  display: grid;
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.goal-row {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: start;
+  text-align: left;
+}
+
+.label {
+  font-weight: 700;
+  color: #1f2430;
+}
+
+.value {
+  color: #2f3340;
+  line-height: 1.6;
+  white-space: pre-wrap;
+}
+
+.daily-record {
+  text-align: center;
+  margin: 28px 0;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
