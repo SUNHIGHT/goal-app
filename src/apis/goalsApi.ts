@@ -1,7 +1,7 @@
 import type { GoalItem } from "../types/types";
 
 const API_URL = "https://zzl6x53gbn7vx5grg2ysl5bigy0vramv.lambda-url.ap-northeast-1.on.aws/"
-const STORAGE_KEY = "goal-app-items";
+// const STORAGE_KEY = "goal-app-items";
 
 export async function getGoals():Promise<GoalItem[]>{
     try{
