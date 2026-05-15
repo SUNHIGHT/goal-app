@@ -32,7 +32,7 @@ export default function App() {
         <>
             <Header>
                 アイコン、検索バー、別タブ、お知らせボタン、アカウント情報、ゴール追加ボタン
-                ※Qiitaを参考にしてる
+                ※Qiitaを参考にしてるa
             </Header>
             <main className="page-layout">
                 <div className="page-main">
